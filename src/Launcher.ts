@@ -1,7 +1,7 @@
 import { Server } from './server/Server'
 
 class Launcher {
-  // private name: string
+  private name: string
   private server: Server
 
   constructor() {
