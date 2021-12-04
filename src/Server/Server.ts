@@ -1,8 +1,10 @@
 import { createServer, IncomingMessage, ServerResponse } from 'http'
+import { Authorizer } from '../Authorization/Authorizer'
 import { LoginHandler } from './LoginHandler'
 import { Utils } from './Utils'
 
 export class Server {
+    private authorizer: Authorizer = new Authorizer()
     port: number = 8080
 
     public createServer() {
@@ -12,7 +14,11 @@ export class Server {
 
             switch (basePath) {
                 case 'login':
-                    await new LoginHandler(req, res).handleRequest()
+                    await new LoginHandler(
+                        req,
+                        res,
+                        this.authorizer,
+                    ).handleRequest()
                     break
 
                 default:
