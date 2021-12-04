@@ -6,13 +6,13 @@ export class Server {
     port: number = 8080
 
     public createServer() {
-        createServer((req: IncomingMessage, res: ServerResponse) => {
+        createServer(async (req: IncomingMessage, res: ServerResponse) => {
             console.log('Request received from ' + req.url)
             const basePath = Utils.getUrlBasePath(req.url)
 
             switch (basePath) {
                 case 'login':
-                    new LoginHandler(req, res).handleRequest()
+                    await new LoginHandler(req, res).handleRequest()
                     break
 
                 default:
