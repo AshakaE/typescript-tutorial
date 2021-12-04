@@ -4,8 +4,8 @@ class DbTest {
     public dbAccess: UserCredentialsDBAccess = new UserCredentialsDBAccess()
 }
 
-new DbTest().dbAccess.putUSerCredential({
+new DbTest().dbAccess.putUserCredentials({
     username: 'user',
-    password: 'password',
+    password: 'test1234',
     accessRights: [1, 2, 3],
 })

@@ -1,21 +1,23 @@
 {
-  "name": "tsc-tut",
-  "version": "1.0.0",
-  "description": "",
-  "main": "Launcher.js",
-  "scripts": {
-    "start": "ts-node src/Launcher.ts"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@types/nedb": "^1.8.12",
-    "@types/node": "^16.11.11",
-    "ts-node": "^10.4.0",
-    "typescript": "^4.5.2"
-  },
-  "dependencies": {
-    "nedb": "^1.8.0"
-  }
+    "name": "tsc-tut",
+    "version": "1.0.0",
+    "description": "",
+    "main": "Launcher.js",
+    "scripts": {
+        "start": "ts-node src/Launcher.ts",
+        "dev": "nodemon --watch './**/*.ts' --exec 'ts-node' src/Launcher.ts"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@types/nedb": "^1.8.12",
+        "@types/node": "^16.11.11",
+        "nodemon": "^2.0.15",
+        "ts-node": "^10.4.0",
+        "typescript": "^4.5.2"
+    },
+    "dependencies": {
+        "nedb": "^1.8.0"
+    }
 }

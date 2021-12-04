@@ -3,13 +3,13 @@ import { SessionTokenDBAccess } from './SessionTokenDBAccess'
 import { UserCredentialsDBAccess } from './UserCredentialsDBAccess'
 
 export class Authorizer implements TokenGenerator {
-    private userCreateDBAccess: UserCredentialsDBAccess =
+    private userCredDBAccess: UserCredentialsDBAccess =
         new UserCredentialsDBAccess()
     private sessionTokenDBAccess: SessionTokenDBAccess =
         new SessionTokenDBAccess()
 
     async generateToken(account: Account): Promise<SessionToken | undefined> {
-        const resultAccount = await this.userCreateDBAccess.getUSerCredential(
+        const resultAccount = await this.userCredDBAccess.getUserCredentials(
             account.username,
             account.password,
         )
@@ -22,6 +22,7 @@ export class Authorizer implements TokenGenerator {
                 tokenId: this.generateRandomToken(),
             }
             await this.sessionTokenDBAccess.storeSessionToken(token)
+            return token
         } else {
             return undefined
         }
