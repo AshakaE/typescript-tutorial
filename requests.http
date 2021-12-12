@@ -17,6 +17,11 @@ Content-Type: application/json
 Authorization: td0yt5zi69
 ###
 
+DELETE  http://localhost:8080/users?id=pxz3mxnscj
+Content-Type: application/json
+Authorization: td0yt5zi69
+###
+
 PUT http://localhost:8080/users
 Content-Type: application/json
 Authorization: qe37lvzftv7
